@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="Employee.cs" />
+      <Compile Remove="EmployeeController.cs" />
+      <Compile Remove="HomeController.cs" />
+      <Compile Remove="Program.cs" />
+      <Compile Remove="RankController.cs" />
+      <Compile Remove="RouteController.cs" />
+      <Compile Remove="StationController.cs" />
+      <Compile Remove="TransportTypeController.cs" />
+      <Compile Remove="UsersController.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="ClassDiagram1.cd" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.11" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.11" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.11">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+
+</Project>

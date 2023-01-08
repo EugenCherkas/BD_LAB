@@ -1,0 +1,19 @@
+﻿@model List<Transport.Infrastructure.Data.Entities.Employee>
+@if (Model.Count > 0)
+{
+    <ul class="list-group">
+    @foreach (var item in Model)
+    {
+        <li class="list-group-item mb-1">
+            <div>
+                @item.SecondName @item.FirstName
+            </div>
+            <p style="font-size: small;">@item.Rank.Name</p>
+        </li>
+    }
+    </ul>
+}
+else
+{
+    <h1>Нет сотрудников на маршруте</h1>
+}

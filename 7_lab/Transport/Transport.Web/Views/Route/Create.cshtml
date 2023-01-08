@@ -1,0 +1,66 @@
+﻿@using Transport.Infrastructure.Constants
+@model Transport.Infrastructure.Data.Entities.Route
+
+
+<div class="container">
+    <h1>Добавление</h1>
+    <hr/>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control"/>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DayOfWeek" class="control-label"></label>
+                    <select asp-for="DayOfWeek" class="form-control">
+                    @foreach (var valuePair in DayOfWeekConstants.DayOfWeeks)
+                    {
+                        <option value="@valuePair.Key">@valuePair.Value</option>
+                    }
+                    </select>
+                    <span asp-validation-for="DayOfWeek" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" class="form-check-input" asp-for="IsExpress" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Экспресс</label>
+                    <span asp-validation-for="IsExpress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TransportTypeId" class="control-label"></label>
+                    <select asp-for="TransportTypeId" class="form-control">
+                        @foreach (var rank in ViewBag.TransportTypes)
+                        {
+                            <option value="@rank.Id">@rank.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="TransportTypeId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="KilometersOnRoute" class="control-label"></label>
+                    <input asp-for="KilometersOnRoute" class="form-control"/>
+                    <span asp-validation-for="KilometersOnRoute" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MinutesOnRoute" class="control-label"></label>
+                    <input asp-for="MinutesOnRoute" class="form-control"/>
+                    <span asp-validation-for="MinutesOnRoute" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-2">
+                    <input type="submit" value="Добавить" class="btn btn-outline-secondary"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index">Назад</a>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

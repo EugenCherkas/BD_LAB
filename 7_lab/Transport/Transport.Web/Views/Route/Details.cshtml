@@ -1,0 +1,68 @@
+﻿@model Transport.Web.Models.Route.RouteDetailsModel
+
+<ul class="list-group">
+  @foreach (var item in Model.RouteStations.OrderBy(x => x.Order))
+  {
+    <li class="list-group-item">
+      <div>
+        @item.Station.Name
+      </div>
+      <p style="font-size: small;">@(item.Hours < 10 ? $"0{item.Hours}" : item.Hours):@(item.Minutes < 10 ? $"0{item.Minutes}" : item.Minutes)</p>
+      <a href="#" style="color: red; font-size: small;" onclick="onRouteRemove(@item.StationId)">Удалить</a>
+    </li>
+  }
+</ul>
+<a class="btn btn-outline-secondary mt-2" onclick="onRouteAddOpen()">Добавить</a>
+<div id="route-add-container" class="mt-2" hidden="hidden">
+  <p>Часы:</p>
+  <input id="hours-input" value="00" class="form-control mb-2"/>
+  <p>Минуты:</p>
+  <input id="minutes-input" value="00" class="form-control mb-2"/>
+  <p>Остановка:</p>
+  <select id="station-input" class="form-control mb-2">
+    @foreach (var station in Model.Stations)
+    {
+      <option value="@station.Id">@station.Name</option>
+    }
+  </select>
+  <a class="btn btn-outline-secondary" onclick="onRouteAdd()">Подтвердить</a>
+</div>
+
+<script>
+  function onRouteAddOpen() {
+      $("#route-add-container").removeAttr('hidden')
+  }
+
+  function onRouteRemove(stationId) {
+    $.ajax({
+       type: 'Delete',
+       url: "Route/RouteStation?stationId=" + stationId + "&routeId=@Model.RouteId",
+       success: function() {
+          routeDetailsBtn('@Model.RouteId');
+       },
+   })
+  }
+
+  function onRouteAdd() {
+      const hours = Number($("#hours-input")[0].value);
+      const minutes = Number($("#minutes-input")[0].value);
+      const station = Number($("#station-input")[0].value);
+
+      if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59 || station === 0 || station === undefined || isNaN(station)) {
+        return;
+      }
+
+      $("#route-add-container").attr('hidden', 'hidden');
+
+      $.ajax({
+           type: 'POST',
+           url: "Route/RouteStation",
+           data: '{"RouteId":"@Model.RouteId", "StationId":' + station + ', "Hours": ' + hours + ', "Minutes": ' + minutes + '}',
+           contentType: "application/json",
+           success: function() {
+              routeDetailsBtn('@Model.RouteId');
+           },
+           dataType: 'json'
+       })
+  }
+</script>

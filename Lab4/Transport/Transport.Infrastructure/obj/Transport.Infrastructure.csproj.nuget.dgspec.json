@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Transport\\Transport.Infrastructure\\Transport.Infrastructure.csproj": {}
+    "D:\\РБДПС\\Git_РПБДИС\\BD_LAB\\Lab4\\Transport\\Transport.Infrastructure\\Transport.Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\Transport\\Transport.Infrastructure\\Transport.Infrastructure.csproj": {
+    "D:\\РБДПС\\Git_РПБДИС\\BD_LAB\\Lab4\\Transport\\Transport.Infrastructure\\Transport.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Transport\\Transport.Infrastructure\\Transport.Infrastructure.csproj",
+        "projectUniqueName": "D:\\РБДПС\\Git_РПБДИС\\BD_LAB\\Lab4\\Transport\\Transport.Infrastructure\\Transport.Infrastructure.csproj",
         "projectName": "Transport.Infrastructure",
-        "projectPath": "D:\\Transport\\Transport.Infrastructure\\Transport.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Vadzim.Vayadzilau\\.nuget\\packages\\",
-        "outputPath": "D:\\Transport\\Transport.Infrastructure\\obj\\",
+        "projectPath": "D:\\РБДПС\\Git_РПБДИС\\BD_LAB\\Lab4\\Transport\\Transport.Infrastructure\\Transport.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\shura\\.nuget\\packages\\",
+        "outputPath": "D:\\РБДПС\\Git_РПБДИС\\BD_LAB\\Lab4\\Transport\\Transport.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Visual Studio 2019\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Vadzim.Vayadzilau\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\shura\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,39 +43,17 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[6.0.11, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[6.0.11, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[6.0.11, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.415\\RuntimeIdentifierGraph.json"
         }
       }
     }
